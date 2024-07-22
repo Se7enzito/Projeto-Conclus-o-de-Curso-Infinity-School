@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(255, 216, 196);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 50px;
+}
+
+form {
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 1rem;
+    display: flex;
+    gap: 10px
+}
+
+.tarefa {
+    background-color: rgb(254, 123, 58);
+    width: 350px;
+    border-radius: 5px;
+    padding: 1rem;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.tarefa div {
+    margin-left: auto;
+}
+
+.tarefa p {
+    margin-left: 5px;
+}
+
+.tarefa input:checked + p {
+    color: rgb(84, 84, 84);
+    text-decoration: line-through;
+}

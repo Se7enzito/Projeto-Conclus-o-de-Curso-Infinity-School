@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <title>Recursos Interno</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recInternosVer.css') }}">
+</head>
+
+<body>
+    <main class="background d-flex justify-content-center align-items-center text-center flex-column gap-4 p-4">
+        <h1 class="title">Lista de Recursos Internos</h1>
+
+        <div class="d-flex flex-row gap-4">
+            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal"
+                data-bs-target="#modalAdd">Adicionar</button>
+            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal"
+                data-bs-target="#modalRem">Remover</button>
+            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal"
+                data-bs-target="#modalAtua">Atualizar</button>
+        </div>
+
+        <div class="modal fade" id="modalRem" tabindex="-1" role="dialog" aria-labelledby="modalTitleId"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">Remover um Item</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="{{ url_for('rem_item') }}" method="post">
+                        <div class="modal-body d-flex flex-column">
+                            <label for="item">Item</label>
+                            <input type="text" name="item" id="item" placeholder="Digite o nome do item">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalAtua" tabindex="-1" role="dialog" aria-labelledby="modalTitleId"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">Atualizar dados de um Item</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="{{ url_for('atua_item') }}" method="post">
+                        <div class="modal-body d-flex flex-column">
+                            <label for="item">Item</label>
+                            <input type="text" name="item" id="item" placeholder="Digite o nome do item">
+                            <label for="quantidade">Quantidade</label>
+                            <input type="text" name="quantidade" id="quantidade"
+                                placeholder="Digite a quantidade do item">
+                            <label for="tipo">Tipo</label>
+                            <input type="text" name="tipo" id="tipo" placeholder="Digite o tipo do item">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="modalTitleId"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">Adicionar um Item</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="{{ url_for('save_item') }}" method="post">
+                        <div class="modal-body d-flex flex-column">
+                            <label for="item">Item</label>
+                            <input type="text" name="item" id="item" placeholder="Digite o nome do item">
+                            <label for="quantidade">Quantidade</label>
+                            <input type="text" name="quantidade" id="quantidade"
+                                placeholder="Digite a quantidade do item">
+                            <label for="tipo">Tipo</label>
+                            <input type="text" name="tipo" id="tipo" placeholder="Digite o tipo do item">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <td>ID</td>
+                    <td>Nome</td>
+                    <td>Quantidade</td>
+                    <td>Tipo</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    {% for i in item %}
+                    <td>{{ i }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div>
+            <form action="{{ url_for('dashboard') }}" method="POST">
+                <button type="submit" class="btn btn-primary">Voltar a dashboard</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

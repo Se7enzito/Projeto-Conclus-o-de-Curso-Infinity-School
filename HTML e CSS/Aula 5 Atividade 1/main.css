@@ -1,0 +1,23 @@
+* {
+    padding: 0px;
+    margin: 0px;
+
+    box-sizing: border-box;
+}
+
+.botao {
+    padding: 4px;
+
+    margin: 8px;
+
+    border-color: black;
+    border-style: solid;
+    border-radius: 12px 8px;
+
+    font-size: 28px;
+}
+
+.botao:hover {
+    background-color: black;
+    color: white;
+}

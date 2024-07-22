@@ -1,0 +1,43 @@
+.background {
+    background-color: gray;
+    color: black;
+}
+
+.title {
+    font-family: 'Roboto Mono';
+}
+
+.subtitle {
+    font-family: 'Segoe UI';
+}
+
+.title i {
+    text-transform: uppercase;
+    font-style: normal;
+}
+
+.buttonForm {
+    border: 1px black solid;
+}
+
+.buttonForm:hover {
+    color: rgb(0, 0, 0);
+
+    border: 1px black solid;
+
+    letter-spacing: 2px;
+}
+
+.form {
+    border: 3px solid black;
+    border-radius: 30px;
+
+    background-color: wheat;
+    padding: 10px;
+
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.581);
+}
+
+.form p {
+    font-size: 1.2rem;
+}

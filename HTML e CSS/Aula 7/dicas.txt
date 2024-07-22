@@ -1,0 +1,2 @@
+Estudar depois a documentação do Bootstrap, procurar cursos na Udemy sobre Bootstrap,
+CSS Puro e outras ferramentas do CSS
